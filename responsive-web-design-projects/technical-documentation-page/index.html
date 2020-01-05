@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        header {
+            font-size: 2rem;
+        }
+        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.7em;
+            color: #999;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        #content {
+            width: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+            padding-left: 270px;
+        }
+
+        #navbar {
+            background: #708B9B;
+            color: #fff;
+            transition: all 0.3s;
+            min-width: 250px;
+            max-width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #navbar .sidebar-header {
+            padding: 20px;
+            background: #6d7fcc;
+        }
+
+        #navbar ul.components {
+            padding: 20px 0;
+            border-bottom: 1px solid #47748b;
+        }
+
+        #navbar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        #navbar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        #navbar ul li a:hover {
+            color: #708B9B;
+            background: #fff;
+        }
+
+        #navbar ul li.active > a, a[aria-expanded="true"] {
+            color: #fff;
+            background: #708B9B;
+        }
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #708B9B;
+        }
+
+        #navbarCollapse {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            #navbarCollapse {
+                display: block;
+            }
+            #navbar {
+                margin-left: -250px;
+            }
+            #navbar.active {
+                margin-left: 0;
+            }
+            #content {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main-doc">
+        <div class="wrapper">
+            <nav id="navbar">
+                <header>Docker Documentation</header>
+                <ul class="list-unstyled components">
+                    <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+                    <li><a class="nav-link" href="#Docker_build">Docker build</a></li>
+                    <li><a class="nav-link" href="#Docker_compose">Docker compose</a></li>
+                    <li><a class="nav-link" href="#Docker_detached_mode">Docker detached mode</a></li>
+                    <li><a class="nav-link" href="#Docker_rm">Docker rm</a></li>
+                    <li><a class="nav-link" href="#Docker_rmi">Docker rmi</a></li>
+                    <li><a class="nav-link" href="#Separate_Build_Image">Separate Build Image</a></li>
+                </ul>
+            </nav>
+        <div id="content">
+            <button type="button" id="navbarCollapse" class="btn btn-info" style="float: right;">
+                <svg class="svg-inline--fa fa-align-justify fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="align-justify" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="" style="width: .875em;"><path fill="currentColor" d="M0 84V44c0-8.837 7.163-16 16-16h416c8.837 0 16 7.163 16 16v40c0 8.837-7.163 16-16 16H16c-8.837 0-16-7.163-16-16zm16 144h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 256h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0-128h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+            </button>
+        <section id="Introduction" class="main-section">
+            <header>Introduction</header>
+            <p>Docker is an open platform to build, ship, and run distributed applications. It is written in Go. It was
+                first released in 2013 and is developed by Docker, Inc.</p>
+
+            <p>Docker is used to run packages called “containers”. Containers are isolated from each others and from the
+                OS. These are more lightweight than virtual machines as they do not use the host machine to run an
+                operating system.</p>
+
+            <p>Containerization, which is a way of deploying and running applications, runs isolated services which run
+                natively on the Linux kernel. Memory can be set manually for each container in Docker.</p>
+
+            <p>Docker is used to simplify configurations, and ensure a smooth continuous integration and deployment
+                flow. Specific containers can be specified for development, staging, and production environments. A true
+                implementation of a container in production, according to the Docker manual, is to run it as a service,
+                using the <code>docker-compose.yml</code> file for setup. This is a YAML file that defines how Docker
+                containers
+                should behave in production.</p>
+
+            <p>One of Docker’s biggest advantages is that it can be used by a team using different operateing systems to
+                build projects without needing to worry about software conflicts.</p>
+
+            <h2>Installation</h2>
+            <ul>
+                <li>Ubuntu: <code>sudo apt install docker</code></li>
+                <li>RedHat: <code>yum install docker-ce</code></li>
+                <li>Windows / macOS: <a href="https://www.docker.com/get-started">Download</a></li>
+                <li>Linux:</li>
+            </ul>
+            <code>curl -fsSL https://get.docker.com -o get-docker.sh<br>
+                sh get-docker.sh</code>
+            <h3>More Information:</h3>
+            <ul>
+                <li>For download and documentation check the docker official site: <a
+                        href="https://www.docker.com/">Docker official site</a></li>
+                <li>For more on containerization, checkout <a
+                        href="https://searchitoperations.techtarget.com/definition/application-containerization-app-containerization">Search
+                        IT Operations</a></li>
+                <li>A Docker 101 course <a href="https://github.com/docker/labs/tree/master/beginner/">Docker 101</a>
+                </li>
+            </ul>
+        </section>
+        <section id="Docker_build" class="main-section">
+            <header>Docker build</header>
+            <p><code>docker build</code> created a docker image from a Dockerfile and a “context”. A context can be a
+                URL or a local PATH. You can name the image using the optional <code>-t</code> tag.</p>
+            <p>A Dockerfile will install dependencies during the build command, from a specified URL or local PATH. Any
+                dependencies necessary in your containers must be specified in the Dockerfile.</p>
+            <p>Your image is now stored in your machine’s local Docker image registry.</p>
+            <p>When you have Docker containers built, you can then run your app using the appropriate run commands.</p>
+            <h3>More Information:</h3>
+            <ul>
+                <li><a href="https://docs.docker.com/engine/reference/commandline/rm/">Docker CLI docs: build</a></li>
+                <li><a href="https://docs.docker.com/get-started/part2/#build-the-app">Docker Building Your App</a></li>
+            </ul>
+        </section>
+        <section id="Docker_compose" class="main-section">
+            <header>Docker compose</header>
+            <p>Docker-Compose is a tool for defining and running multi-container Docker applications. With Compose, you
+                use a YAML file to configure your application’s services.</p>
+            <p>The steps to use docker-compose are</p>
+            <p><code>1)create a Dockerfile which defines the image and can be produsable every where.</code></p>
+            <p><code>2)create a docke-compose yml file to run the services</code></p>
+            <p><code>3)use docker-compose up to start the sevices specified in docker-compose.yml file</code></p>
+            <h3>Basic commands in docker-compose</h3>
+            <ul>
+                <li>
+                    Command to run docker-containers
+                </li>
+                <code>docker-compose -f docker-compose.yml up</code>
+                <li>Command to run containers in detached mode</li>
+                <code>docker-compose -f docker-compose.yml up -d</code>
+                <li>command to run containers after buildingthe images again(note: first time we run docker containers
+                    build will happen automatically)</li>
+                <code>docker-compose -f docker-compose.yml --build -d</code>
+                <li>Command to stop containers when we run in detached mode</li>
+                <code>docker-compose -f docker-compose.yml down</code>
+            </ul>
+            <h3>More Information:</h3>
+            <ul>
+                <li>[More information on Docker-compose] (https://docs.docker.com/compose/)</li>
+            </ul>
+        </section>
+        <section id="Docker_detached_mode" class="main-section">
+            <header>Docker detached mode</header>
+            <p>Detached mode, shown by the option <code>--detach</code> or <code>-d</code>, means that a Docker
+                container runs in the background of your terminal. It does not receive input or display output.</p>
+            <code>docker run -d IMAGE</code>
+            <p>If you run containers in the background, you can find out their details using <code>docker ps</code> and
+                then reattach your terminal to its input and output.</p>
+            <h3>More Information:</h3>
+            <ul>
+                <li><a href="https://docs.docker.com/engine/reference/commandline/attach/#examples">Attach to and detach
+                        from a running container | Docker Docs</a></li>
+                <li><a href="https://docs.docker.com/engine/reference/run/#detached-vs-foreground">Detached vs
+                        foreground | Docker docs</a></li>
+            </ul>
+        </section>
+        <section id="Docker_rm" class="main-section">
+            <header>Docker rm</header>
+            <p><code>docker rm</code> removes containers by their name or ID.</p>
+            <p>When you have Docker containers running, you first need to stop them before deleting them.</p>
+            <ul>
+                <li>Stop all running containers: <code>docker stop $(docker ps -a -q)</code></li>
+                <li>Delete all stopped containers: <code>docker rm $(docker ps -a -q)</code></li>
+            </ul>
+            <h2>Remove multiple containers</h2>
+            <p>You can stop and delete multiple containers by passing the commands a list of the containers you want to
+                remove. The shell syntax <code>$()</code> returns the results of whatever is executed within the brackets. So you can
+                create your list of containers within this to be passed to the <code>stop</code> and <code>rm</code> commands.</p>
+            <h5>Here is a breakdown of docker ps -a -q</h5>
+            <ul>
+                <li><code>docker</code> ps list containers</li>
+                <li><code>-a</code> the option to list all containers, even stopped ones. Without this, it defaults to only listing running containers</li>
+                <li><code>-q</code> the quiet option to provide only container numeric IDs, rather than a whole table of information about containers</li>
+            </ul>
+            <h3>More Information:</h3>
+            <ul>
+                <li><a href="https://docs.docker.com/engine/reference/commandline/rm/">Docker CLI docs: rm</a></li>
+            </ul>
+        </section>
+        <section id="Docker_rmi" class="main-section">
+            <header>Docker rmi</header>
+            <p><code>docker rmi</code> removes images by their ID.</p>
+            <p>To remove the image, you first need to list all the images to get the Image IDs, Image name and other details. By running simple command <code>docker images -a</code> or <code>docker images</code>.</p>
+            <p>After that you make sure which image want to remove, to do that executing this simple command <code>docker rmi <your-image-id></code>. Then you can confirm that image has been removed or not by list all the images and check.</p>
+            <h2>Remove multiple images</h2>
+            <p>There is a way to remove more than one images at a time, when you want to remove multiple specific images. So to do that first get Image IDs simply by listing the images then execute simple followed command.</p>
+            <p><code>docker rmi <your-image-id> <your-image-id> ...</code></p>
+            <p>Write Images IDs in the command followed by the spaces between them.</p>
+            <h2>Remove all images at once</h2>
+            <p>To remove all images there is a simple command to do that. <code>docker rmi $(docker images -q)</code></p>
+            <p>Here in the above command, there are two command the first which execute in the <code>$()</code> is shell syntax and returns the results whatever executed in that syntax. So in this <code>-q- is a option is used to provide to return the unique IDs,</code>$() returns the results of image IDs and then <code>docker rmi</code> removes all those images.</p>
+            <h3>More Information:</h3>
+            <ul>
+                <li><a href="https://docs.docker.com/engine/reference/commandline/rm/">Docker CLI docs: rmi</a></li>
+            </ul>
+        </section>
+        <section id="Separate_Build_Image" class="main-section">
+            <header>Separate Build Image</header>
+            <p>Making lightweight docker images is key to having a fast development/deployment pipeline. For compiled code, building the binary inside a docker container has the benefit of being a repeatable and standardised build process. However, this can create a very large images which can become an issue down the line.</p>
+            <h2>Our code</h2>
+            <p>In this example, we will use a simple webserver writen in Go. The following code is just a simple hello world webserver listening on port <code>8080</code>.</p>
+            <pre><code>
+                package main
+
+                import (
+                    "fmt"
+                    "log"
+                    "net/http"
+                )
+
+                func handler(w http.ResponseWriter, r *http.Request) {
+                    fmt.Fprint(w, "Hello world!")
+                }
+
+                func main() {
+                    http.HandleFunc("/", handler)
+                    log.Fatal(http.ListenAndServe(":8080", nil))
+                }
+            </code></pre>
+            <h2>Dockerfile</h2>
+            <p>The Dockerfile for this code might look something like this</p>
+            <pre>
+                <code>
+                    FROM golang:1.11
+
+                    ADD . /app
+
+                    WORKDIR /app
+
+                    RUN go build -o /myserver .
+
+                    EXPOSE 8080
+
+                    CMD [ "/myserver" ]
+                </code>
+            </pre>
+            <p>Building this image results in an image with a size of 783MB!! With an image that size for a simple application, it’s easy to see how this can slow things down when deploying.</p>
+            <h2>A better solution</h2>
+            <p>A better solution would be to use a separate build image to build the binary and then copy it to the final image. As Go generates a standalone binary, we can use the <code>scratch</code> docker image as a base which is about as small as it gets!</p>
+            <h3>Dockerfile</h3>
+            <p>The following Dockerfile will first build the binary inside the golang image and then build a new image from scratch, copying the binary from the first image into the second.</p>
+            <pre>
+                <code>
+                    FROM golang:1.11 as build
+
+                    ADD . /app
+
+                    WORKDIR /app
+
+                    RUN go build -o /myserver .
+
+
+                    FROM scratch
+
+                    COPY --from=build /myserver /myserver
+
+                    EXPOSE 8080
+
+                    CMD [ "myserver" ]
+                </code>
+            </pre>
+            <p>Building from this dockerfile results in a final image size of only 6.55MB! That’s over 100 times smaller than our first attempt, making it 100 times faster to pull the image down from a registry!</p>
+            <h3>Bonus benefit</h3>
+            <p>Not only do we now have a tiny docker image for our application, we also only have to worry about the security of our application as there is no other software running inside the container.</p>
+            <h2>Reference</h2>
+            <ul>
+                <li>All the documentation in this page is taken from <a href="https://guide.freecodecamp.org/docker">FreeCodeCamp</a></li>
+            </ul>
+        </section>
+    </div>
+</div>
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+        $('#navbarCollapse').on('click', function () {
+            $('#navbar').toggleClass('active');
+        });
+
+        $('.main-section').click(function() {
+            $('#navbar').removeClass('active');
+        });
+
+        });
+    </script>
+</body>
+
+</html>

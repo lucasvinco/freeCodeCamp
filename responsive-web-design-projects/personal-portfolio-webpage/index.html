@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #welcome-section {
+            padding-top: 56px;
+            height: 100vh;
+            background-color: #9796998a;
+        }
+
+        #welcome-section {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .title-name {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .title-name h1 {
+            line-height: 0.7;
+            font-weight: bold;
+            font-size: 4rem;
+        }
+
+        .title-name h3 {
+            line-height: 0.7;
+        }
+
+        .padding-reset {
+            padding: 0;
+        }
+
+        #contact-links {
+            background-color: #424242;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            min-height: 200px;
+            border-bottom: solid 4px white;
+        }
+
+        .contact-link-item {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .contact-link-item a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-link-item a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-link-item a:visited {
+            text-decoration: none;
+            color: white;
+        }
+
+        #projects .container {
+            text-align: center;
+        }
+
+        #projects .container h2 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-links hr {
+            color: white;
+        }
+
+        .info {
+            background-color: #424242;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .info p {
+            color: white;
+        }
+
+        i {
+            font-family: fontawesome !important;
+        }
+
+        @media screen {}
+    </style>
+</head>
+
+<body>
+    <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#welcome-section">About</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#projects">Work</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#contact-links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section id="welcome-section">
+        <div class="title-name">
+            <h1>Some One</h1>
+            <h3>a web developer</h3>
+        </div>
+    </section>
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal project-tile">Tribute Page</h4>
+              </div>
+              <div class="card-body padding-reset">
+                <a href="#">
+                    <img class="img-fluid" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/images/tribute.jpg" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal project-tile">Random Quote Machine</h4>
+              </div>
+              <div class="card-body padding-reset">
+                <a href="#">
+                    <img class="img-fluid" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/images/random-quote-machine.png" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal project-tile">JavaScript Calculator</h4>
+              </div>
+              <div class="card-body padding-reset">
+                <a href="#">
+                    <img class="img-fluid" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/images/calc.png" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer>
+        <section id="contact-links">
+            <div class="contact-link-item">
+                <a id="profile-link" href="https://github.com/lucasvinco" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                </a>
+                <a href="#">
+                    <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
+                </a>
+                <a href="#">
+                    <i class="fa fa-twitter" aria-hidden="true"></i> Twitter
+                </a>
+                <a href="#">
+                    <i class="fa fa-at" aria-hidden="true"></i> Email
+                </a>
+            </div>
+        </section>
+        <section class="info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>**This is just a fake portfolio. All the projects given are not real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
